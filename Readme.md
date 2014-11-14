@@ -1,8 +1,8 @@
-[![Build Status](https://circleci.com/gh/segmentio/integration-librato.png)](https://circleci.com/gh/segmentio/integration-librato)
+[![Build Status](https://circleci.com/gh/segmentio/integration-librato/tree/master.png?style=badge)](https://circleci.com/gh/segmentio/integration-librato/tree/master)
 
-# Librato server-side integration.
+# integration-librato
 
-Write me...
+Librato server-side integration for Segment.
 
 
 ## License
