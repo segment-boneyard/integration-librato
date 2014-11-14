@@ -1,0 +1,21 @@
+{
+  "input": {
+    "type": "track",
+    "event": "my-event",
+    "timestamp": "2014",
+    "properties": {
+      "value": 2
+    },
+    "integrations": {
+      "Librato": {
+        "source": "src"
+      }
+    }
+  },
+  "output": {
+    "name": "my-event",
+    "measure_time": 1388534400,
+    "source": "src",
+    "value": 2
+  }
+}

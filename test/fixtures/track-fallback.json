@@ -1,0 +1,13 @@
+{
+  "input": {
+    "type": "track",
+    "event": "my-event",
+    "timestamp": "2014"
+  },
+  "output": {
+    "name": "my-event",
+    "measure_time": 1388534400,
+    "source": "my-event",
+    "value": 1
+  }
+}
