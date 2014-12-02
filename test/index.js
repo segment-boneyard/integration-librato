@@ -27,8 +27,7 @@ describe('Librato', function(){
       .endpoint('https://metrics-api.librato.com/v1')
       .channels(['server', 'client', 'mobile'])
       .ensure('settings.token')
-      .ensure('settings.email')
-      .retries(2);
+      .ensure('settings.email');
   });
 
   describe('.validate()', function(){
