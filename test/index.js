@@ -65,6 +65,15 @@ describe('Librato', function(){
         test.maps('track-context-source');
       });
     });
+
+    describe('page', function(){
+      it('should map basic page', function(){
+        test.maps('page-basic');
+      });
+      it('should map named page', function(){
+        test.maps('page-name');
+      });
+    });
   });
 
   describe('.track()', function(){
@@ -98,13 +107,41 @@ describe('Librato', function(){
           value: 0
         }
       }));
-      result.value.should.equal(0)
+      result.value.should.equal(0);
     });
 
     it('should error on invalid keys', function(done){
       test
         .set({ token: 'x' })
         .track({ event: 'some-event' })
+        .error('cannot POST /v1/metrics (401)', done);
+    });
+  });
+
+  describe('.page()', function(){
+    var page = helpers.page();
+
+    it('should send page successfully', function(done){
+      var event = librato.mapper.clean(page.track(page.fullName()).event());
+      test
+        .set(settings)
+        .page(page)
+        .sends({
+          gauges: [{
+            name: event,
+            value: 1,
+            measure_time: time(page.timestamp()),
+            source: event
+          }]
+        })
+        .expects(200)
+        .end(done);
+    });
+
+    it('should error on invalid keys', function(done){
+      test
+        .set({ token: 'x' })
+        .page({ name: 'some-page' })
         .error('cannot POST /v1/metrics (401)', done);
     });
   });

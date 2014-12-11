@@ -1,0 +1,20 @@
+{
+  "input": {
+    "type": "page",
+    "timestamp": "2014",
+    "properties": {
+      "value": 2
+    },
+    "options": {
+      "Librato": {
+        "source": "src"
+      }
+    }
+  },
+  "output": {
+    "name": "Loaded-a-Page",
+    "measure_time": 1388534400,
+    "source": "src",
+    "value": 2
+  }
+}
