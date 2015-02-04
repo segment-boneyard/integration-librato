@@ -13,7 +13,7 @@
     }
   },
   "output": {
-    "name": "Viewed-Home-Page",
+    "name": "test.Viewed-Home-Page",
     "measure_time": 1388534400,
     "source": "src",
     "value": 2

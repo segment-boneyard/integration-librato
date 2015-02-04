@@ -9,13 +9,19 @@ var assert = require('assert');
 var Librato = require('..');
 
 describe('Librato', function(){
-  var settings;
+  var settings, settings_without_prefix;
   var librato;
 
   beforeEach(function(){
     settings = {
       email: 'testing+librato@segment.io',
-      token: 'eb753e965bfb546525fa78bb2c9472e50c16aa573f993e953c6773ff16f4c676'
+      token: 'eb753e965bfb546525fa78bb2c9472e50c16aa573f993e953c6773ff16f4c676',
+      prefix: 'test.'
+    };
+    settings_without_prefix = {
+      email: 'testing+librato@segment.io',
+      token: 'eb753e965bfb546525fa78bb2c9472e50c16aa573f993e953c6773ff16f4c676',
+      prefix: undefined
     };
     librato = new Librato(settings);
     test = Test(librato, __dirname);
@@ -86,6 +92,23 @@ describe('Librato', function(){
         .track(track)
         .sends({
           gauges: [{
+            name: settings.prefix + event,
+            value: 1,
+            measure_time: time(track.timestamp()),
+            source: event
+          }]
+        })
+        .expects(200)
+        .end(done);
+    });
+
+    it('should track successfully without a prefix', function(done){
+      var event = librato.mapper.clean(track.event());
+      test
+        .set(settings_without_prefix)
+        .track(track)
+        .sends({
+          gauges: [{
             name: event,
             value: 1,
             measure_time: time(track.timestamp()),
@@ -125,6 +148,23 @@ describe('Librato', function(){
       var event = librato.mapper.clean(page.track(page.fullName()).event());
       test
         .set(settings)
+        .page(page)
+        .sends({
+          gauges: [{
+            name: settings.prefix + event,
+            value: 1,
+            measure_time: time(page.timestamp()),
+            source: event
+          }]
+        })
+        .expects(200)
+        .end(done);
+    });
+
+    it('should send page successfully without a prefix', function(done){
+      var event = librato.mapper.clean(page.track(page.fullName()).event());
+      test
+        .set(settings_without_prefix)
         .page(page)
         .sends({
           gauges: [{

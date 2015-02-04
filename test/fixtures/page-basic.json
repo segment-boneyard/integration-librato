@@ -12,7 +12,7 @@
     }
   },
   "output": {
-    "name": "Loaded-a-Page",
+    "name": "test.Loaded-a-Page",
     "measure_time": 1388534400,
     "source": "src",
     "value": 2
