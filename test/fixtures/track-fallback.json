@@ -5,7 +5,7 @@
     "timestamp": "2014"
   },
   "output": {
-    "name": "my-event",
+    "name": "test.my-event",
     "measure_time": 1388534400,
     "source": "my-event",
     "value": 1
