@@ -14,8 +14,8 @@ describe('Librato', function(){
 
   beforeEach(function(){
     settings = {
-      email: 'testing+librato@segment.io',
-      token: 'eb753e965bfb546525fa78bb2c9472e50c16aa573f993e953c6773ff16f4c676'
+      email: 'tools+librato@segment.com',
+      token: '331436d2a5ed2b3cf8239f13dc1e5e5fe7400a852be8336d130c478864acf725'
     };
     librato = new Librato(settings);
     test = Test(librato, __dirname);
