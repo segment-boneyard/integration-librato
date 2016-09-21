@@ -114,7 +114,7 @@ describe('Librato', function(){
       test
         .set({ token: 'x' })
         .track({ event: 'some-event' })
-        .error('cannot POST /v1/metrics (401)', done);
+        .error('Unauthorized', done);
     });
   });
 
@@ -142,7 +142,7 @@ describe('Librato', function(){
       test
         .set({ token: 'x' })
         .page({ name: 'some-page' })
-        .error('cannot POST /v1/metrics (401)', done);
+        .error('Unauthorized', done);
     });
   });
 });
