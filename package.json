@@ -1,6 +1,6 @@
 {
-  "name": "integration-librato",
-  "version": "1.1.0",
+  "name": "@segment/integration-librato",
+  "version": "1.1.1",
   "private": true,
   "description": "Librato server-side integration",
   "author": "Segment <friends@segment.com>",
